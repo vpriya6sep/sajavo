@@ -15,21 +15,22 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import './RenterDashboard.css';
-
-// Import images
-import card1 from '../assets/card-1.png';
-import card2 from '../assets/card-2.png';
-import card3 from '../assets/card-3.png';
-import card4 from '../assets/card-4.png';
+import { products } from '../data/products';
 
 const RenterDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('upcoming');
 
+  // Get actual product images
+  const product1 = products.find(p => p.id === 1);
+  const product2 = products.find(p => p.id === 2);
+  const product3 = products.find(p => p.id === 3);
+  const product4 = products.find(p => p.id === 4);
+
   const upcomingRentals = [
     {
       id: 1,
-      image: card1,
+      image: product1.image,
       name: 'Emerald Green Silk Lehenga',
       designer: 'Sabyasachi Mukherjee',
       startDate: '2024-12-15',
@@ -40,7 +41,7 @@ const RenterDashboard = () => {
     },
     {
       id: 2,
-      image: card2,
+      image: product2.image,
       name: 'Royal Blue Anarkali',
       designer: 'Manish Malhotra',
       startDate: '2025-01-05',
@@ -54,7 +55,7 @@ const RenterDashboard = () => {
   const pastRentals = [
     {
       id: 3,
-      image: card3,
+      image: product3.image,
       name: 'Red Bridal Lehenga',
       designer: 'Tarun Tahiliani',
       startDate: '2024-11-10',
@@ -66,7 +67,7 @@ const RenterDashboard = () => {
     },
     {
       id: 4,
-      image: card4,
+      image: product4.image,
       name: 'Golden Silk Saree',
       designer: 'Anita Dongre',
       startDate: '2024-10-20',

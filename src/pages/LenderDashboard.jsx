@@ -18,19 +18,20 @@ import {
   XCircle,
 } from 'lucide-react';
 import './LenderDashboard.css';
-
-// Import images
-import card1 from '../assets/card-1.png';
-import card2 from '../assets/card-2.png';
-import card3 from '../assets/card-3.png';
+import { products } from '../data/products';
 
 const LenderDashboard = () => {
   const [activeTab, setActiveTab] = useState('outfits');
 
+  // Get actual product images
+  const product1 = products.find(p => p.id === 1);
+  const product2 = products.find(p => p.id === 2);
+  const product3 = products.find(p => p.id === 3);
+
   const listedOutfits = [
     {
       id: 1,
-      image: card1,
+      image: product1.image,
       name: 'Emerald Green Silk Lehenga',
       designer: 'Sabyasachi Mukherjee',
       price: 7500,
@@ -41,7 +42,7 @@ const LenderDashboard = () => {
     },
     {
       id: 2,
-      image: card2,
+      image: product2.image,
       name: 'Royal Blue Anarkali',
       designer: 'Manish Malhotra',
       price: 5400,
@@ -52,7 +53,7 @@ const LenderDashboard = () => {
     },
     {
       id: 3,
-      image: card3,
+      image: product3.image,
       name: 'Red Bridal Lehenga',
       designer: 'Tarun Tahiliani',
       price: 9000,
