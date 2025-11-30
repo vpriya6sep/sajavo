@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import carousel1 from '../../assets/Carousel-1.png';
@@ -11,11 +12,11 @@ const CategoryCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(2);
 
   const categories = [
-    { name: "Bridal Look", image: carousel1 },
-    { name: "Sangeet Night", image: carousel2 },
-    { name: "Mehendi Vibes", image: carousel3 },
-    { name: "Cocktail Glam", image: carousel4 },
-    { name: "Festive Glow", image: carousel5 }
+    { name: "Bridal Look", image: carousel1, link: "/catalog?occasion=Wedding" },
+    { name: "Sangeet Night", image: carousel2, link: "/catalog?occasion=Sangeet" },
+    { name: "Mehendi Vibes", image: carousel3, link: "/catalog?occasion=Mehendi" },
+    { name: "Cocktail Glam", image: carousel4, link: "/catalog?occasion=Cocktail" },
+    { name: "Festive Glow", image: carousel5, link: "/catalog?occasion=Festive" }
   ];
 
   const nextSlide = () => {
@@ -45,10 +46,12 @@ const CategoryCarousel = () => {
         <div className="carousel-track">
           {categories.map((cat, index) => (
             <div key={index} className={`carousel-card ${getSlideClass(index)}`}>
-              <img src={cat.image} alt={cat.name} loading="lazy" decoding="async" />
-              <div className="carousel-text">
-                <h3>{cat.name}</h3>
-              </div>
+              <Link to={cat.link} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
+                <img src={cat.image} alt={cat.name} loading="lazy" decoding="async" />
+                <div className="carousel-text">
+                  <h3>{cat.name}</h3>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

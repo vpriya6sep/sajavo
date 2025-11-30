@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Heart, ShoppingBag, X } from 'lucide-react';
 import './Header.css';
+import logoIcon from '../../assets/sajavo.ico';
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -10,8 +11,7 @@ const Header = () => {
     <header className="header">
       <div className="container header-container">
         <Link to="/" className="logo">
-          {/* Placeholder for logo image */}
-          <span className="logo-icon">§</span> SAJAVO
+          <img src={logoIcon} alt="Sajavo Logo" className="logo-icon" style={{ width: '132px', height: '56px' }} />
         </Link>
 
         {showSearch ? (
@@ -37,8 +37,8 @@ const Header = () => {
           <nav className="nav-menu">
             <ul className="nav-links">
               <li><Link to="/availability">Date availability</Link></li>
-              <li><Link to="/catalog?category=wedding">Wedding</Link></li>
-              <li><Link to="/catalog?category=accessories">Accessories</Link></li>
+              <li><Link to="/catalog?occasion=Wedding">Wedding</Link></li>
+              <li><Link to="/catalog?category=Accessories">Accessories</Link></li>
             </ul>
           </nav>
         )}

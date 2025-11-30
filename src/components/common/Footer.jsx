@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, CreditCard } from 'lucide-react';
 import './Footer.css';
 
@@ -9,43 +10,43 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Customer Service</h3>
           <ul>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">How It Works</a></li>
-            <li><a href="#">Return & Exchange</a></li>
-            <li><a href="#">Size Guid</a></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/faqs">FAQs</Link></li>
+            <li><Link to="/how-it-works">How It Works</Link></li>
+            <li><Link to="/returns">Return & Exchange</Link></li>
+            <li><Link to="/size-guide">Size Guide</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>Shop</h3>
           <ul>
-            <li><a href="#">Wedding Collection</a></li>
-            <li><a href="#">Pre-Wedding Looks</a></li>
-            <li><a href="#">Festive Wear</a></li>
-            <li><a href="#">Designer Outfits</a></li>
-            <li><a href="#">Accessories</a></li>
+            <li><Link to="/catalog?occasion=Wedding">Wedding Collection</Link></li>
+            <li><Link to="/catalog?occasion=Sangeet">Pre-Wedding Looks</Link></li>
+            <li><Link to="/catalog?occasion=Festive">Festive Wear</Link></li>
+            <li><Link to="/catalog">Designer Outfits</Link></li>
+            <li><Link to="/catalog?category=Accessories">Accessories</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>Our Policies</h3>
           <ul>
-            <li><a href="#">Rental Terms & Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Refund Policy</a></li>
-            <li><a href="#">Sustainability Commitment</a></li>
+            <li><Link to="/terms">Rental Terms & Conditions</Link></li>
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/shipping">Shipping Policy</Link></li>
+            <li><Link to="/refund">Refund Policy</Link></li>
+            <li><Link to="/sustainability">Sustainability Commitment</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>Sajavo</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Collaborate With Us</a></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/about">Our Story</Link></li>
+            <li><Link to="/careers">Careers</Link></li>
+            <li><Link to="/lend">Collaborate With Us</Link></li>
           </ul>
         </div>
       </div>

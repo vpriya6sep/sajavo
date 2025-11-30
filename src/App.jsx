@@ -12,6 +12,7 @@ import LendOutfit from './pages/LendOutfit';
 import HowItWorks from './pages/HowItWorks';
 import RenterDashboard from './pages/RenterDashboard';
 import LenderDashboard from './pages/LenderDashboard';
+import DateAvailability from './pages/DateAvailability';
 
 // Placeholder components for pages in development
 const Placeholder = ({ title }) => (
@@ -21,9 +22,13 @@ const Placeholder = ({ title }) => (
   </div>
 );
 
+import ScrollToTop from './components/common/ScrollToTop';
+
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/catalog" element={<Catalog />} />
@@ -31,6 +36,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/lend" element={<LendOutfit />} />
       <Route path="/how-it-works" element={<HowItWorks />} />
+      <Route path="/availability" element={<DateAvailability />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/checkout" element={<Checkout />} />
@@ -39,6 +45,7 @@ function App() {
       <Route path="/order-confirmation" element={<Placeholder title="Order Confirmed" />} />
       <Route path="*" element={<Placeholder title="404 - Page Not Found" />} />
     </Routes>
+    </>
   );
 }
 

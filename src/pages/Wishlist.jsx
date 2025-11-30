@@ -4,54 +4,56 @@ import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import ProductCard from '../components/product/ProductCard';
 import { Heart, Bell, BellOff, Trash2, ShoppingBag } from 'lucide-react';
+import { products } from '../data/products';
 import './Wishlist.css';
-
-// Import images
-import card1 from '../assets/card-1.png';
-import card2 from '../assets/card-2.png';
-import card3 from '../assets/card-3.png';
-import card4 from '../assets/card-4.png';
 
 const Wishlist = () => {
   const navigate = useNavigate();
+  
+  // Get actual products for wishlist - using products 1, 2, 3, and 4
+  const product1 = products.find(p => p.id === 1);
+  const product2 = products.find(p => p.id === 2);
+  const product3 = products.find(p => p.id === 3);
+  const product4 = products.find(p => p.id === 4);
+  
   const [wishlistItems, setWishlistItems] = useState([
     {
       id: 1,
-      image: card1,
-      name: 'Emerald Green Silk Lehenga',
-      designer: 'Sabyasachi Mukherjee',
-      price: 2500,
-      rating: 4.8,
+      image: product1.image,
+      name: product1.name,
+      designer: product1.designer,
+      price: product1.price,
+      rating: product1.rating,
       available: true,
       notifyOnAvailable: true,
     },
     {
       id: 2,
-      image: card2,
-      name: 'Royal Blue Anarkali',
-      designer: 'Manish Malhotra',
-      price: 1800,
-      rating: 4.7,
+      image: product2.image,
+      name: product2.name,
+      designer: product2.designer,
+      price: product2.price,
+      rating: product2.rating,
       available: true,
       notifyOnAvailable: false,
     },
     {
       id: 3,
-      image: card3,
-      name: 'Red Bridal Lehenga',
-      designer: 'Tarun Tahiliani',
-      price: 3000,
-      rating: 4.9,
+      image: product3.image,
+      name: product3.name,
+      designer: product3.designer,
+      price: product3.price,
+      rating: product3.rating,
       available: false,
       notifyOnAvailable: true,
     },
     {
       id: 4,
-      image: card4,
-      name: 'Golden Silk Saree',
-      designer: 'Anita Dongre',
-      price: 1500,
-      rating: 4.6,
+      image: product4.image,
+      name: product4.name,
+      designer: product4.designer,
+      price: product4.price,
+      rating: product4.rating,
       available: true,
       notifyOnAvailable: false,
     },

@@ -3,27 +3,32 @@ import { Link } from 'react-router-dom';
 import { Trash2, ArrowRight, ChevronRight } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import { products } from '../data/products';
 import './Cart.css';
 
 const Cart = () => {
-  // Mock Cart Data
+  // Get actual products for cart - using products 1 and 17 (Emerald Lehenga and Ivory Sherwani)
+  const product1 = products.find(p => p.id === 1);
+  const product17 = products.find(p => p.id === 17);
+  
+  // Mock Cart Data with real product images
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "Emerald Green Silk Lehenga",
-      designer: "Sabyasachi Mukherjee",
-      image: "https://images.unsplash.com/photo-1518049362265-d5b2a6467637?auto=format&fit=crop&q=80&w=800",
-      price: 2500,
+      name: product1.name,
+      designer: product1.designer,
+      image: product1.image,
+      price: product1.price,
       size: "M",
       rentalPeriod: "Oct 24 - Oct 27",
       days: 3
     },
     {
-      id: 2,
-      name: "Ivory Wedding Sherwani",
-      designer: "Manish Malhotra",
-      image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800",
-      price: 3500,
+      id: 17,
+      name: product17.name,
+      designer: product17.designer,
+      image: product17.image,
+      price: product17.price,
       size: "L",
       rentalPeriod: "Nov 12 - Nov 15",
       days: 3

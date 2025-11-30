@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 import ProductCard from '../components/product/ProductCard';
@@ -10,7 +11,9 @@ import card1 from '../assets/card-1.png';
 import card2 from '../assets/card-2.png';
 import card3 from '../assets/card-3.png';
 import { products as allProducts } from '../data/products';
+
 const Catalog = () => {
+  const location = useLocation();
   const [viewMode, setViewMode] = useState('grid');
   const [sortBy, setSortBy] = useState('popular');
   const [locationBased, setLocationBased] = useState(false);
@@ -25,6 +28,35 @@ const Catalog = () => {
     priceMax: '',
     location: '',
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const categoryParam = params.get('category');
+    const occasionParam = params.get('occasion');
+
+    if (categoryParam || occasionParam) {
+      setFilters({
+        category: categoryParam ? [categoryParam] : [],
+        occasion: occasionParam ? [occasionParam] : [],
+        designer: [],
+        size: [],
+        priceMin: '',
+        priceMax: '',
+        location: '',
+      });
+    } else {
+      // Clear filters if no params (e.g. "Explore Collection")
+      setFilters({
+        category: [],
+        occasion: [],
+        designer: [],
+        size: [],
+        priceMin: '',
+        priceMax: '',
+        location: '',
+      });
+    }
+  }, [location.search]);
 
   // Mock products data
 
@@ -83,7 +115,36 @@ const Catalog = () => {
     });
   };
 
-  const filteredProducts = allProducts; // In real app, apply filters here
+  const filteredProducts = allProducts.filter((product) => {
+    // Category Filter - case insensitive
+    if (filters.category.length > 0) {
+      const productCategory = product.category ? String(product.category).toLowerCase().trim() : '';
+      const hasMatch = filters.category.some(f => f.toLowerCase().trim() === productCategory);
+      if (!hasMatch) return false;
+    }
+
+    // Occasion Filter - case insensitive
+    if (filters.occasion.length > 0) {
+      const productOccasion = product.occasion ? String(product.occasion).toLowerCase().trim() : '';
+      const hasMatch = filters.occasion.some(f => f.toLowerCase().trim() === productOccasion);
+      if (!hasMatch) return false;
+    }
+
+    // Designer Filter
+    if (filters.designer.length > 0 && !filters.designer.includes(product.designer)) return false;
+    
+    // Size Filter
+    if (filters.size.length > 0 && !product.size.some(s => filters.size.includes(s))) return false;
+    
+    // Price Range Filters
+    if (filters.priceMin && product.price < Number(filters.priceMin)) return false;
+    if (filters.priceMax && product.price > Number(filters.priceMax)) return false;
+    
+    // Location Filter
+    if (locationBased && filters.location && product.location !== filters.location) return false;
+    
+    return true;
+  });
   const productsPerPage = 8;
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const displayedProducts = filteredProducts.slice(
@@ -98,9 +159,13 @@ const Catalog = () => {
       <div className="catalog-page">
         <div className="catalog-header">
           <div className="container">
-            <h1>Browse Catalog</h1>
+            <h1>
+              {filters.occasion.includes('Wedding') ? 'Wedding Collection' :
+               filters.category.includes('Accessories') ? 'Accessories Collection' :
+               filters.occasion.includes('Festive') ? 'Festive Collection' :
+               'Browse Catalog'}
+            </h1>
             <p>Discover luxury outfits for every occasion</p>
-
             {/* Search Bar */}
             <div className="catalog-search">
               <div className="search-input-wrapper">

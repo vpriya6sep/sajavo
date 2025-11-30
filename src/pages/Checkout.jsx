@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import { products } from '../data/products';
 import {
   Calendar,
   MapPin,
@@ -12,9 +13,6 @@ import {
   Info,
 } from 'lucide-react';
 import './Checkout.css';
-
-// Import image
-import card1 from '../assets/card-1.png';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -29,13 +27,14 @@ const Checkout = () => {
     paymentMethod: 'card',
   });
 
-  // Mock product data
+  // Get actual product data
+  const actualProduct = products.find(p => p.id === 1);
   const product = {
-    id: 1,
-    name: 'Emerald Green Silk Lehenga',
-    designer: 'Sabyasachi Mukherjee',
-    image: card1,
-    pricePerDay: 2500,
+    id: actualProduct.id,
+    name: actualProduct.name,
+    designer: actualProduct.designer,
+    image: actualProduct.image,
+    pricePerDay: actualProduct.price,
     securityDeposit: 15000,
   };
 

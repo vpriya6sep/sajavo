@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import carousel2 from '../../assets/Carousel-2.png';
 import category1 from '../../assets/Category-1.png';
@@ -12,7 +13,9 @@ const ShopByCategories = () => {
       <div className="container shop-categories-container">
         {/* Left Large Image */}
         <div className="shop-cat-left">
-          <img src={carousel2} alt="Wedding Outfits" loading="lazy" decoding="async" />
+          <Link to="/catalog?occasion=Wedding">
+            <img src={carousel2} alt="Wedding Outfits" loading="lazy" decoding="async" />
+          </Link>
         </div>
 
         {/* Right Content */}
@@ -23,30 +26,30 @@ const ShopByCategories = () => {
           </div>
 
           <div className="shop-cat-grid">
-            <div className="shop-cat-item">
+            <Link to="/catalog?category=Accessories" className="shop-cat-item">
               <div className="cat-img-box">
                 <img src={category1} alt="Bridal chura" loading="lazy" decoding="async" />
               </div>
               <span>Bridal chura</span>
-            </div>
-            <div className="shop-cat-item">
+            </Link>
+            <Link to="/catalog?category=Accessories" className="shop-cat-item">
               <div className="cat-img-box">
                 <img src={category2} alt="Classic Gold Earrings" loading="lazy" decoding="async" />
               </div>
               <span>Classic Gold Earerings</span>
-            </div>
-            <div className="shop-cat-item">
+            </Link>
+            <Link to="/catalog?category=Accessories" className="shop-cat-item">
               <div className="cat-img-box">
                 <img src={category3} alt="Stoles & Dupattas" loading="lazy" decoding="async" />
               </div>
               <span>Stoles & Dupattas</span>
-            </div>
-            <div className="shop-cat-item">
+            </Link>
+            <Link to="/catalog?category=Accessories" className="shop-cat-item">
               <div className="cat-img-box">
                 <img src={category4} alt="Juttis & Footwear" loading="lazy" decoding="async" />
               </div>
               <span>Juttis & Footwear</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

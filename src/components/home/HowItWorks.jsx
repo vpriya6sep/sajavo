@@ -14,7 +14,6 @@ const HowItWorks = () => {
               <div className="step-icon">
                 <ShoppingBag size={32} />
               </div>
-              <div className="step-number">1</div>
             </div>
             <h3>Rent</h3>
             <p>Choose from our exclusive collection of designer outfits.</p>
@@ -24,7 +23,6 @@ const HowItWorks = () => {
               <div className="step-icon">
                 <Sparkles size={32} />
               </div>
-              <div className="step-number">2</div>
             </div>
             <h3>Wear</h3>
             <p>Flaunt your look and make memories that last forever.</p>
@@ -34,7 +32,6 @@ const HowItWorks = () => {
               <div className="step-icon">
                 <RotateCcw size={32} />
               </div>
-              <div className="step-number">3</div>
             </div>
             <h3>Return</h3>
             <p>Pack it up and we'll pick it up. Dry cleaning is on us!</p>
