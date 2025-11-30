@@ -37,7 +37,7 @@ const AlternatingGrid = () => {
             {item.type === 'image-top' ? (
               <>
                 <div className="alt-image">
-                  <img src={item.image} alt="Fashion" />
+                  <img src={item.image} alt="Fashion" loading="lazy" decoding="async" />
                 </div>
                 <p className="alt-text">{item.text}</p>
               </>
@@ -45,7 +45,7 @@ const AlternatingGrid = () => {
               <>
                 <p className="alt-text">{item.text}</p>
                 <div className="alt-image">
-                  <img src={item.image} alt="Fashion" />
+                  <img src={item.image} alt="Fashion" loading="lazy" decoding="async" />
                 </div>
               </>
             )}

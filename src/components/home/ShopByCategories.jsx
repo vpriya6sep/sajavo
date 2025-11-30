@@ -12,7 +12,7 @@ const ShopByCategories = () => {
       <div className="container shop-categories-container">
         {/* Left Large Image */}
         <div className="shop-cat-left">
-          <img src={carousel2} alt="Wedding Outfits" />
+          <img src={carousel2} alt="Wedding Outfits" loading="lazy" decoding="async" />
         </div>
 
         {/* Right Content */}
@@ -25,25 +25,25 @@ const ShopByCategories = () => {
           <div className="shop-cat-grid">
             <div className="shop-cat-item">
               <div className="cat-img-box">
-                <img src={category1} alt="Bridal chura" />
+                <img src={category1} alt="Bridal chura" loading="lazy" decoding="async" />
               </div>
               <span>Bridal chura</span>
             </div>
             <div className="shop-cat-item">
               <div className="cat-img-box">
-                <img src={category2} alt="Classic Gold Earrings" />
+                <img src={category2} alt="Classic Gold Earrings" loading="lazy" decoding="async" />
               </div>
               <span>Classic Gold Earerings</span>
             </div>
             <div className="shop-cat-item">
               <div className="cat-img-box">
-                <img src={category3} alt="Stoles & Dupattas" />
+                <img src={category3} alt="Stoles & Dupattas" loading="lazy" decoding="async" />
               </div>
               <span>Stoles & Dupattas</span>
             </div>
             <div className="shop-cat-item">
               <div className="cat-img-box">
-                <img src={category4} alt="Juttis & Footwear" />
+                <img src={category4} alt="Juttis & Footwear" loading="lazy" decoding="async" />
               </div>
               <span>Juttis & Footwear</span>
             </div>

@@ -45,7 +45,7 @@ const CategoryCarousel = () => {
         <div className="carousel-track">
           {categories.map((cat, index) => (
             <div key={index} className={`carousel-card ${getSlideClass(index)}`}>
-              <img src={cat.image} alt={cat.name} />
+              <img src={cat.image} alt={cat.name} loading="lazy" decoding="async" />
               <div className="carousel-text">
                 <h3>{cat.name}</h3>
               </div>
