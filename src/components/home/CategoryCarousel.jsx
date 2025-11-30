@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import carousel1 from '../../assets/Carousel-1.png';
+import carousel2 from '../../assets/Carousel-2.png';
+import carousel3 from '../../assets/Carousel-3.png';
+import carousel4 from '../../assets/Carousel-4.png';
+import carousel5 from '../../assets/Carousel-5.png';
+
 const CategoryCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(2);
 
   const categories = [
-    { name: "Bridal Look", image: "/src/assets/Carousel-1.png" },
-    { name: "Sangeet Night", image: "/src/assets/Carousel-2.png" },
-    { name: "Mehendi Vibes", image: "/src/assets/Carousel-3.png" },
-    { name: "Cocktail Glam", image: "/src/assets/Carousel-4.png" },
-    { name: "Festive Glow", image: "/src/assets/Carousel-5.png" }
+    { name: "Bridal Look", image: carousel1 },
+    { name: "Sangeet Night", image: carousel2 },
+    { name: "Mehendi Vibes", image: carousel3 },
+    { name: "Cocktail Glam", image: carousel4 },
+    { name: "Festive Glow", image: carousel5 }
   ];
 
   const nextSlide = () => {
