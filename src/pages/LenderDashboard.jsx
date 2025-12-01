@@ -130,7 +130,7 @@ const LenderDashboard = () => {
                 <User size={32} />
               </div>
               <div>
-                <h1>Welcome back, Riya!</h1>
+                <h1>Welcome back, Vishnupriya!</h1>
                 <p>Manage your listings and grow your earnings</p>
               </div>
             </div>
@@ -147,21 +147,39 @@ const LenderDashboard = () => {
                 <div>
                   <div className="earnings-label">Total Earnings</div>
                   <div className="earnings-value">
-                    <IndianRupee size={28} />
-                    {totalEarnings.toLocaleString()}
+                    ₹{totalEarnings.toLocaleString()}
+                  </div>
+                  <div className="earnings-growth">
+                    <TrendingUp size={16} />
+                    <span>+12.5% from last month</span>
                   </div>
                 </div>
                 <div className="earnings-icon">
                   <TrendingUp size={32} />
                 </div>
               </div>
-              <div className="earnings-chart">
-                <div className="chart-bar" style={{ height: '60%' }}></div>
-                <div className="chart-bar" style={{ height: '80%' }}></div>
-                <div className="chart-bar" style={{ height: '70%' }}></div>
-                <div className="chart-bar" style={{ height: '90%' }}></div>
-                <div className="chart-bar" style={{ height: '100%' }}></div>
-                <div className="chart-bar" style={{ height: '85%' }}></div>
+              <div className="earnings-chart-container">
+                <div className="chart-period">Last 6 months</div>
+                <div className="earnings-chart">
+                  <div className="chart-bar" style={{ height: '60%' }}>
+                    <span className="chart-tooltip">₹28K</span>
+                  </div>
+                  <div className="chart-bar" style={{ height: '80%' }}>
+                    <span className="chart-tooltip">₹35K</span>
+                  </div>
+                  <div className="chart-bar" style={{ height: '70%' }}>
+                    <span className="chart-tooltip">₹32K</span>
+                  </div>
+                  <div className="chart-bar" style={{ height: '90%' }}>
+                    <span className="chart-tooltip">₹38K</span>
+                  </div>
+                  <div className="chart-bar" style={{ height: '100%' }}>
+                    <span className="chart-tooltip">₹42K</span>
+                  </div>
+                  <div className="chart-bar" style={{ height: '85%' }}>
+                    <span className="chart-tooltip">₹36K</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -405,15 +423,15 @@ const LenderDashboard = () => {
                   <div className="profile-form">
                     <div className="form-group">
                       <label>Full Name</label>
-                      <input type="text" className="form-input" defaultValue="Riya Mehta" />
+                      <input type="text" className="form-input" defaultValue="Vishnupriya Pandey" />
                     </div>
                     <div className="form-group">
                       <label>Email</label>
-                      <input type="email" className="form-input" defaultValue="riya@example.com" />
+                      <input type="email" className="form-input" defaultValue="vpriya6sep@gmail.com" />
                     </div>
                     <div className="form-group">
                       <label>Phone</label>
-                      <input type="tel" className="form-input" defaultValue="+91 98765 43210" />
+                      <input type="tel" className="form-input" defaultValue="+91 86049 55155" />
                     </div>
                     <div className="form-group">
                       <label>Address</label>

@@ -116,7 +116,7 @@ const RenterDashboard = () => {
                 <User size={32} />
               </div>
               <div>
-                <h1>Welcome back, Sneha!</h1>
+                <h1>Welcome back, Vishnupriya!</h1>
                 <p>Manage your rentals and explore new outfits</p>
               </div>
             </div>
