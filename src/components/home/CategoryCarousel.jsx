@@ -12,10 +12,10 @@ const CategoryCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(2);
 
   const categories = [
-    { name: "Wedding Look", image: carousel1, link: "/catalog?occasion=Wedding" },
+    { name: "Sangeet Ready", image: carousel1, link: "/catalog?occasion=Wedding" },
     { name: "Diwali Look", image: carousel2, link: "/catalog?occasion=Sangeet" },
-    { name: "Bridal Look", image: carousel3, link: "/catalog?occasion=Mehendi" },
-    { name: "Sangeet Ready", image: carousel4, link: "/catalog?occasion=Cocktail" },
+    { name: "Wedding Look", image: carousel3, link: "/catalog?occasion=Mehendi" },
+    { name: "Festive Ready", image: carousel4, link: "/catalog?occasion=Cocktail" },
     { name: "Mehendi Vibes", image: carousel5, link: "/catalog?occasion=Festive" }
   ];
 
