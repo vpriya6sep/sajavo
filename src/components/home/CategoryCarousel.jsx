@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -10,6 +10,7 @@ import carousel5 from '../../assets/Carousel-5.png';
 
 const CategoryCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(2);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const categories = [
     { name: "Sangeet Ready", image: carousel1, link: "/catalog?occasion=Wedding" },
@@ -27,6 +28,39 @@ const CategoryCarousel = () => {
     setActiveSlide((prev) => (prev - 1 + categories.length) % categories.length);
   };
 
+  // Auto-rotate carousel
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // Rotate every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [activeSlide, isAutoPlaying]);
+
+  // Pause auto-play on hover
+  const handleMouseEnter = () => {
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoPlaying(true);
+  };
+
+  // Reset auto-play when manual navigation is used
+  const handleManualNext = () => {
+    setIsAutoPlaying(false);
+    nextSlide();
+    setTimeout(() => setIsAutoPlaying(true), 2000); // Resume after 2 seconds
+  };
+
+  const handleManualPrev = () => {
+    setIsAutoPlaying(false);
+    prevSlide();
+    setTimeout(() => setIsAutoPlaying(true), 2000); // Resume after 2 seconds
+  };
+
   const getSlideClass = (index) => {
     const total = categories.length;
     const position = (index - activeSlide + total) % total;
@@ -41,8 +75,12 @@ const CategoryCarousel = () => {
 
   return (
     <section className="custom-carousel-section section-padding">
-      <div className="carousel-container">
-        <button className="carousel-btn prev" onClick={prevSlide}><ChevronLeft size={30} /></button>
+      <div 
+        className="carousel-container" 
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+      >
+        <button className="carousel-btn prev" onClick={handleManualPrev}><ChevronLeft size={30} /></button>
         <div className="carousel-track">
           {categories.map((cat, index) => (
             <div key={index} className={`carousel-card ${getSlideClass(index)}`}>
@@ -55,7 +93,7 @@ const CategoryCarousel = () => {
             </div>
           ))}
         </div>
-        <button className="carousel-btn next" onClick={nextSlide}><ChevronRight size={30} /></button>
+        <button className="carousel-btn next" onClick={handleManualNext}><ChevronRight size={30} /></button>
       </div>
     </section>
   );
