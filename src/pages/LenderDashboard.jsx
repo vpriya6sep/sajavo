@@ -421,36 +421,280 @@ const LenderDashboard = () => {
                 <section>
                   <h2>My Profile</h2>
                   <div className="profile-form">
-                    <div className="form-group">
-                      <label>Full Name</label>
-                      <input type="text" className="form-input" defaultValue="Vishnupriya Pandey" />
+                    {/* Personal Information Section */}
+                    <div className="profile-section">
+                      <div className="section-title">
+                        <User size={20} />
+                        <h3>Personal Information</h3>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Full Name *</label>
+                          <input type="text" className="form-input" defaultValue="Vishnupriya Pandey" required />
+                        </div>
+                        <div className="form-group">
+                          <label>Phone Number *</label>
+                          <input type="tel" className="form-input" defaultValue="+91 86049 55155" required />
+                        </div>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Email Address *</label>
+                          <input type="email" className="form-input" defaultValue="vpriya6sep@gmail.com" required />
+                        </div>
+                        <div className="form-group">
+                          <label>City / Location *</label>
+                          <input type="text" className="form-input" defaultValue="Mumbai, Maharashtra" required />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>Complete Address</label>
+                        <textarea
+                          className="form-textarea"
+                          rows="3"
+                          defaultValue="456, Park Street, Bandra West, Mumbai - 400050"
+                          placeholder="Enter your complete address for pickup/delivery"
+                        />
+                      </div>
                     </div>
-                    <div className="form-group">
-                      <label>Email</label>
-                      <input type="email" className="form-input" defaultValue="vpriya6sep@gmail.com" />
+
+                    {/* Store / Wardrobe Details Section */}
+                    <div className="profile-section">
+                      <div className="section-title">
+                        <Package size={20} />
+                        <h3>Store / Personal Wardrobe Details</h3>
+                      </div>
+                      <div className="form-group">
+                        <label>Are you a Designer / Boutique or an Individual? *</label>
+                        <div className="radio-group">
+                          <label className="radio-label">
+                            <input type="radio" name="lenderType" value="designer" defaultChecked />
+                            <span>Designer / Boutique</span>
+                          </label>
+                          <label className="radio-label">
+                            <input type="radio" name="lenderType" value="individual" />
+                            <span>Individual Wardrobe Owner</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Brand / Store Name (if applicable)</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            placeholder="Enter your brand or store name"
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Website / Instagram Link (optional)</label>
+                          <input 
+                            type="url" 
+                            className="form-input" 
+                            placeholder="https://instagram.com/yourbrand"
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>Business Description (optional)</label>
+                        <textarea
+                          className="form-textarea"
+                          rows="3"
+                          placeholder="Tell us about your collection, specialties, and what makes your outfits unique"
+                        />
+                      </div>
                     </div>
-                    <div className="form-group">
-                      <label>Phone</label>
-                      <input type="tel" className="form-input" defaultValue="+91 86049 55155" />
+
+                    {/* Garment Listing Information Section */}
+                    <div className="profile-section">
+                      <div className="section-title">
+                        <BarChart3 size={20} />
+                        <h3>Garment Listing Information</h3>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Total Outfits Available</label>
+                          <input 
+                            type="number" 
+                            className="form-input" 
+                            defaultValue="3"
+                            min="0"
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Average Rental Price Range</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            defaultValue="₹5,000 - ₹10,000"
+                            placeholder="₹5,000 - ₹10,000"
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>Primary Categories (Select multiple)</label>
+                        <div className="checkbox-group">
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Bridal Lehengas</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Anarkalis</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Sarees</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Sherwanis</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Indo-Western</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Gowns</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>Occasions Catered (Select multiple)</label>
+                        <div className="checkbox-group">
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Weddings</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Sangeet</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Mehendi</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Cocktail Party</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Festive Events</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Reception</span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                    <div className="form-group">
-                      <label>Address</label>
-                      <textarea
-                        className="form-textarea"
-                        rows="3"
-                        defaultValue="456, Park Street, Delhi - 110001"
-                      />
+
+                    {/* Payment & Banking Section */}
+                    <div className="profile-section">
+                      <div className="section-title">
+                        <IndianRupee size={20} />
+                        <h3>Payment & Banking Details</h3>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Bank Name *</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            placeholder="Enter bank name"
+                            required
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Account Holder Name *</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            placeholder="As per bank records"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Account Number *</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            defaultValue="XXXX XXXX XXXX 1234"
+                            required
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>IFSC Code *</label>
+                          <input 
+                            type="text" 
+                            className="form-input" 
+                            placeholder="Enter IFSC code"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>UPI ID (optional)</label>
+                        <input 
+                          type="text" 
+                          className="form-input" 
+                          placeholder="yourname@upi"
+                        />
+                      </div>
                     </div>
-                    <div className="form-group">
-                      <label>Bank Account Details</label>
-                      <input
-                        type="text"
-                        className="form-input"
-                        placeholder="Account Number"
-                        defaultValue="XXXX XXXX XXXX 1234"
-                      />
+
+                    {/* Preferences Section */}
+                    <div className="profile-section">
+                      <div className="section-title">
+                        <CheckCircle size={20} />
+                        <h3>Rental Preferences</h3>
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Minimum Rental Days</label>
+                          <select className="form-input">
+                            <option value="3">3 Days</option>
+                            <option value="4" selected>4 Days</option>
+                            <option value="5">5 Days</option>
+                            <option value="7">7 Days</option>
+                          </select>
+                        </div>
+                        <div className="form-group">
+                          <label>Security Deposit Required</label>
+                          <select className="form-input">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="varies" selected>Varies by outfit</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label>Delivery Options</label>
+                        <div className="checkbox-group">
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Self Pickup</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" defaultChecked />
+                            <span>Home Delivery (charges apply)</span>
+                          </label>
+                          <label className="checkbox-label">
+                            <input type="checkbox" />
+                            <span>Courier Service</span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                    <button className="btn btn-primary">Update Profile</button>
+
+                    <div className="form-actions">
+                      <button type="button" className="btn btn-outline">Cancel</button>
+                      <button type="submit" className="btn btn-primary">Save Changes</button>
+                    </div>
                   </div>
                 </section>
               )}
